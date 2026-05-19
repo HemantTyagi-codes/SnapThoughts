@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="text-white bg-[radial-gradient(circle_at_top_left,_#2563eb,_transparent_25%),radial-gradient(circle_at_bottom_right,_#7c3aed,_transparent_25%),radial-gradient(circle_at_center,_#0f172a,_#000)] min-h-screen">
+
+    <div class="min-h-screen flex items-center justify-center px-6 py-10">
+
+        <!-- Card -->
+        <div class="w-full max-w-3xl bg-zinc-900/70 backdrop-blur-xl border border-zinc-800 rounded-3xl p-8 shadow-2xl">
+
+            <!-- Top Bar -->
+            <div class="flex items-center justify-between mb-8">
+
+                <div>
+                    <h1 class="text-4xl font-bold">
+                        ✏️ Edit Post
+                    </h1>
+
+                    <p class="text-zinc-400 mt-2">
+                        Update your thoughts and save changes.
+                    </p>
+                </div>
+
+                <a 
+                    href="/logout"
+                    class="bg-red-500 hover:bg-red-600 transition-all duration-300 px-5 py-3 rounded-2xl text-sm font-semibold shadow-lg shadow-red-500/20"
+                >
+                    Logout
+                </a>
+
+            </div>
+
+            <!-- Form -->
+            <form action="/update/<%= post._id %>" method="post">
+
+                <!-- User Info -->
+                <div class="flex items-center gap-4 mb-6">
+
+                    <div class="w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center text-xl font-bold shadow-lg shadow-blue-500/20">
+                        ✨
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold">
+                            Editing Your Post
+                        </h3>
+
+                        <p class="text-sm text-zinc-400">
+                            Make changes before updating.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Textarea -->
+                <textarea 
+                    name="content"
+                    placeholder="What's on your mind?"
+                    class="w-full h-56 p-5 rounded-3xl bg-zinc-950 border border-zinc-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 outline-none resize-none transition-all duration-300 text-zinc-200 leading-relaxed"
+                ><%= post.content %></textarea>
+
+                <!-- Buttons -->
+                <div class="flex items-center justify-between mt-6">
+
+                    <a 
+                        href="/profile"
+                        class="px-6 py-3 rounded-2xl border border-zinc-700 text-zinc-300 hover:bg-zinc-800 transition-all duration-300"
+                    >
+                        ← Back
+                    </a>
+
+                    <input 
+                        type="submit"
+                        value="Update Post"
+                        class="px-7 py-3 bg-blue-500 hover:bg-blue-600 rounded-2xl cursor-pointer font-semibold transition-all duration-300 shadow-lg shadow-blue-500/20"
+                    >
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
